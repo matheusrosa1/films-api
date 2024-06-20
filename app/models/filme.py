@@ -3,7 +3,7 @@ from bson.objectid import ObjectId
 
 
 class Filme:
-    _collection = db["films"]
+    _collection = db["filmes"]
 
     def __init__(self, data):
         self.data = data
@@ -14,7 +14,7 @@ class Filme:
         return [cls(d) for d in data]
 
     @classmethod
-    def buscar_filme_por_id(cls, id):
+    def buscar_filmes_por_id(cls, id):
         data = cls._collection.find_one({"_id": ObjectId(id)})
         return cls(data) if data else None
 
